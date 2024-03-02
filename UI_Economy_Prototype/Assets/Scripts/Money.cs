@@ -71,6 +71,8 @@ public class Money : MonoBehaviour
         textCurrency.text = "Current Gold $" + currentCurrency;
     }
 
+
+    //Green Fish and Bait
     public void PurchaseGreenBait()
     {
         if (currentCurrency >= greenBaitCost)
@@ -96,4 +98,37 @@ public class Money : MonoBehaviour
         currentCurrency += greenFishValue;
         Destroy(GameObject.Find("GreenFish(Clone)"));
     }
+
+    //Blue Fish and Bait
+    public void PurchaseBlueBait()
+    {
+        if (currentCurrency >= blueBaitCost)
+        {
+            currentCurrency -= blueBaitCost;
+            Instantiate(blueBait, inventoryPosition.position, Quaternion.identity, inventoryPosition);
+            blueQuantity++;
+
+        }
+    }
+    public void PurchaseBlueFish()
+    {
+        if (blueQuantity >= 1)
+        {
+            blueQuantity--;
+            Instantiate(blueFish, inventoryPosition.position, Quaternion.identity, inventoryPosition);
+            Destroy(GameObject.Find("BlueBait(Clone)"));
+        }
+    }
+
+    public void SellBlueFish()
+    {
+        currentCurrency += blueFishValue;
+        Destroy(GameObject.Find("BlueFish(Clone)"));
+    }
+
+
+
+
+
 }
+
