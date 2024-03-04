@@ -6,7 +6,7 @@ using TMPro;
 
 public class Money : MonoBehaviour
 {
-    
+
 
     [Header("Cost of Bait")]
     public float greenBaitCost;
@@ -72,6 +72,10 @@ public class Money : MonoBehaviour
     }
 
 
+
+
+
+
     //Green Fish and Bait
     public void PurchaseGreenBait()
     {
@@ -79,7 +83,7 @@ public class Money : MonoBehaviour
         {
             currentCurrency -= greenBaitCost;
             Instantiate(greenBait, inventoryPosition.position, Quaternion.identity, inventoryPosition);
-            greenQuantity ++;
+            greenQuantity++;
 
         }
     }
@@ -98,6 +102,10 @@ public class Money : MonoBehaviour
         currentCurrency += greenFishValue;
         Destroy(GameObject.Find("GreenFish(Clone)"));
     }
+
+
+
+
 
     //Blue Fish and Bait
     public void PurchaseBlueBait()
@@ -125,6 +133,77 @@ public class Money : MonoBehaviour
         currentCurrency += blueFishValue;
         Destroy(GameObject.Find("BlueFish(Clone)"));
     }
+
+
+
+
+
+    //Yellow Fish and Bait
+
+    public void PurchaseYellowBait()
+    {
+        if (currentCurrency >= yellowBaitCost)
+        {
+            currentCurrency -= yellowBaitCost;
+            Instantiate(yellowBait, inventoryPosition.position, Quaternion.identity, inventoryPosition);
+            yellowQuantity++;
+
+        }
+    }
+    public void PurchaseYellowFish()
+    {
+        if (yellowQuantity >= 1)
+        {
+            yellowQuantity--;
+            Instantiate(yellowFish, inventoryPosition.position, Quaternion.identity, inventoryPosition);
+            Destroy(GameObject.Find("YellowBait(Clone)"));
+        }
+    }
+
+    public void SellYellowFish()
+    {
+        currentCurrency += yellowFishValue;
+        Destroy(GameObject.Find("YellowFish(Clone)"));
+
+    }
+
+    //Red Fish and Bait
+    public void PurchaseRedBait()
+    {
+        if (currentCurrency >= redBaitCost)
+        {
+            currentCurrency -= redBaitCost;
+            Instantiate(redBait, inventoryPosition.position, Quaternion.identity, inventoryPosition);
+            redQuantity++;
+
+        }
+    }
+    public void PurchaseRedFish()
+    {
+        if (redQuantity >= 1)
+        {
+            redQuantity--;
+            Instantiate(redFish, inventoryPosition.position, Quaternion.identity, inventoryPosition);
+            Destroy(GameObject.Find("RedBait(Clone)"));
+        }
+    }
+
+    public void SellRedFish()
+    {
+        currentCurrency += redFishValue;
+        Destroy(GameObject.Find("RedFish(Clone)"));
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 

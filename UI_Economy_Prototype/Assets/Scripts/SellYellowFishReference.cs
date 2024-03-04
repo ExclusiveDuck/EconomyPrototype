@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SellGreenFishReference : MonoBehaviour
+public class SellYellowFishReference : MonoBehaviour
 {
-    private Money money; 
-
+    private Money money;
+   
     void Start()
     {
         money = GameObject.Find("GameController").GetComponent<Money>();
-    }
 
+    }
     public void Purchase()
     {
-        money.SellGreenFish();
+        money.SellYellowFish();
     }
-
 }

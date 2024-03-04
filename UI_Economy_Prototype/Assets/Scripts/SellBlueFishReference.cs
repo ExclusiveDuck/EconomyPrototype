@@ -6,9 +6,6 @@ public class SellBlueFishReference : MonoBehaviour
 {
     private Money money;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         money = GameObject.Find("GameController").GetComponent<Money>();
@@ -19,9 +16,4 @@ public class SellBlueFishReference : MonoBehaviour
         money.SellBlueFish();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
